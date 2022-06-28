@@ -1,4 +1,5 @@
 create-react-app
+module.css
 component 작성법
 JSX 문법
 React Hook
@@ -13,3 +14,4 @@ DELETE
 # command
 
 npx create-react-app [project_name]
+:: npx를 통해 최신 create-react-app 을 설치
