@@ -1,0 +1,15 @@
+.list_day {
+  display: flex;
+}
+.list_day > li {
+  list-style: none;
+  padding-right: 50px;
+}
+
+.list_day a {
+  text-decoration: none;
+  color: white;
+  background-color: cornflowerblue;
+  padding: 10px 20px;
+  border-radius: 10px;
+}

@@ -1,0 +1,17 @@
+.Table {
+  margin: 0 5%;
+  width: 60vw;
+  border: 1px solid gray;
+  border-collapse: collapse;
+  border-spacing: 50px 0;
+}
+
+h2 {
+  margin-left: 5%;
+}
+
+.Table > tbody > tr > td {
+  border: 1px solid gray;
+  padding: 10px;
+  text-align: center;
+}

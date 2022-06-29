@@ -1,0 +1,34 @@
+import styles from "./Day.module.css";
+import { useParams } from "react-router-dom";
+import Word from "./Word";
+import useFetch from "../hooks/useFetch";
+
+const Day = () => {
+  const day = Number(useParams().day);
+  // const wordList = dummy.words.filter((word) => word.day === day);
+  // const [words, setWords] = useState([]);
+  // useEffect(() => {
+  //   fetch(`http://localhost:3001/words?day=${day}`)
+  //     .then((res) => {
+  //       return res.json();
+  //     })
+  //     .then((data) => {
+  //       setWords(data);
+  //     });
+  // }, [day]);
+  const words = useFetch(`http://localhost:3001/words?day=${day}`);
+  return (
+    <>
+      <h2>Day {day}</h2>
+      <table className={styles.Table}>
+        <tbody>
+          {words.map((word) => (
+            <Word word={word} key={word.id} />
+          ))}
+        </tbody>
+      </table>
+    </>
+  );
+};
+
+export default Day;
