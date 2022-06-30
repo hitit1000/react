@@ -37,5 +37,6 @@
   },
   "devDependencies": {
     "node-sass": "^7.0.1"
-  }
+  },
+  "homepage": "https://hitit1000.github.io/react/"
 }
