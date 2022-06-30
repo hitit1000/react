@@ -8,8 +8,8 @@ const Header = () => {
         영단어 암기장
       </Link>
       <div className={styles.menu}>
-        <a href="/">단어 추가</a>
-        <a href="/">Day 추가</a>
+        <a href="/create_word">단어 추가</a>
+        <a href="/create_day">Day 추가</a>
       </div>
     </div>
   );

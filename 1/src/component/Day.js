@@ -20,6 +20,7 @@ const Day = () => {
   return (
     <>
       <h2>Day {day}</h2>
+      {words.length === 0 && <span>Loading...</span>}
       <table className={styles.Table}>
         <tbody>
           {words.map((word) => (
