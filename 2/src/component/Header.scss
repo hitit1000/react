@@ -1,0 +1,15 @@
+$color: red;
+
+.Header {
+  font-size: 3em;
+  ol {
+    li:first-child {
+      color: $color;
+      font-size: 0.5em;
+    }
+    li:last-child {
+      color: blue;
+      text-align: center;
+    }
+  }
+}
