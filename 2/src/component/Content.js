@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 const Content = (props) => {
-  const [count, setCount] = useState(0);
   console.log(useState(123));
   return (
     <>

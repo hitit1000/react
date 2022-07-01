@@ -21,6 +21,29 @@ css/scss/sass
 :: inline style + 변수사용 ( object )
 :: "node-sass" 설치 및 import './style.scss'로 사용
 
+useEffect
+:: DidMount()//DidUpdate()/WillUnmount()
+:: useEffect(()=>{},[])/ useEffect(()=>{},[a])/ useEffect(()=>{ return () =>{a}},[])
+
+component 생성 ( class vs function )
+
+javascript Bubbling, Capturing, Delegation ..
+
+useCallback vs useMemo
+:: 재render 시 함수가 재생성됨 -> 원치 않게 render시 마다 함수가 실행 됨(값이 변환될때만 실행하고싶음)
+:: 이를 방지하기 위해 useCallback, useMemo 사용
+:: useCallback은 return 함수 반환 // useMemo는 return 값 반환
+
+useContext
+:: 중복되는 component에 props를 한번에 주는 기능
+:: example code 다시보기 필요
+:: React.createContext() //>>
+
+useReducer
+:: 
+
+sliding
+::
 # command
 
 npx create-react-app [project_name]
