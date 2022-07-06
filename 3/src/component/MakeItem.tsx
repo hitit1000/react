@@ -54,7 +54,6 @@ const MakeItem = (props: { data: detailType[][]; index: number; updater: (data: 
     copy[props.tableCount].splice(props.index, 1);
     props.updater(copy);
   };
-  const priceSum = () => {};
   return (
     <>
       <tr>
