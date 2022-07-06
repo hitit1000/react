@@ -4,24 +4,22 @@ const MakeSum = (props: { data: detailType[][] }) => {
   const totalSum = (number: number) => {
     let copy = props.data.map((v) => v.slice());
     let total = 0;
-    console.log(
-      copy.forEach((x) => {
-        x.forEach((y) => {
-          switch (number) {
-            case 0:
-              total += Number(y.price1.replaceAll(",", ""));
-              break;
-            case 1:
-              total += Number(y.price2.replaceAll(",", ""));
-              break;
-            case 2:
-              total += Number(y.price3.replaceAll(",", ""));
-              break;
-          }
-        });
-      })
-    );
-    console.log(total);
+
+    copy.forEach((x) => {
+      x.forEach((y) => {
+        switch (number) {
+          case 0:
+            total += Number(y.price1.replaceAll(",", ""));
+            break;
+          case 1:
+            total += Number(y.price2.replaceAll(",", ""));
+            break;
+          case 2:
+            total += Number(y.price3.replaceAll(",", ""));
+            break;
+        }
+      });
+    });
 
     return total.toLocaleString("ko-KR");
   };
