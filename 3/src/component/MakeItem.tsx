@@ -5,24 +5,27 @@ const MakeItem = (props: { data: detailType[][]; index: number; updater: (data: 
   const formatPrice = (e: any) => {
     let price = e.target.value;
     price = Number(price.replaceAll(",", ""));
+    let copy = [...props.data];
     if (isNaN(price)) {
       e.target.value = 0;
+      copy[props.tableCount][props.index].price3 = "0";
     } else {
       const format = price.toLocaleString("ko-KR");
       e.target.value = format;
     }
-    let copy = [...props.data];
     switch (e.target.id) {
       case "price1":
         copy[props.tableCount][props.index].price1 = e.target.value;
+        copy[props.tableCount][props.index].price3 = (
+          Number(copy[props.tableCount][props.index].price1.replaceAll(",", "")) + Number(copy[props.tableCount][props.index].price2.replaceAll(",", ""))
+        ).toLocaleString("ko-KR");
         props.updater(copy);
         break;
       case "price2":
         copy[props.tableCount][props.index].price2 = e.target.value;
-        props.updater(copy);
-        break;
-      case "price3":
-        copy[props.tableCount][props.index].price3 = e.target.value;
+        copy[props.tableCount][props.index].price3 = (
+          Number(copy[props.tableCount][props.index].price1.replaceAll(",", "")) + Number(copy[props.tableCount][props.index].price2.replaceAll(",", ""))
+        ).toLocaleString("ko-KR");
         props.updater(copy);
         break;
     }
@@ -51,7 +54,7 @@ const MakeItem = (props: { data: detailType[][]; index: number; updater: (data: 
     copy[props.tableCount].splice(props.index, 1);
     props.updater(copy);
   };
-
+  const priceSum = () => {};
   return (
     <>
       <tr>
@@ -68,7 +71,7 @@ const MakeItem = (props: { data: detailType[][]; index: number; updater: (data: 
           <input type="text" id="price2" onChange={formatPrice} value={props.data[props.tableCount][props.index].price2}></input>
         </td>
         <td className="tg-nrix" rowSpan={2}>
-          <input type="text" id="price3" onChange={formatPrice} value={props.data[props.tableCount][props.index].price3}></input>
+          {props.data[props.tableCount][props.index].price3}
         </td>
         <td className="tg-nrix" rowSpan={2}>
           <button type="button" onClick={DeleteItem}>

@@ -3,6 +3,8 @@ import { JsxElement } from "typescript";
 import initData from "./initData.json";
 import initCategory from "./initCategory.json";
 import MakeTable from "./MakeTable";
+import MakeSum from "./MakeSum";
+import MakeInfo from "./MakeInfo";
 
 export type detailType = {
   category: string;
@@ -34,12 +36,14 @@ const AllTable = () => {
   return (
     <div className="Estimate">
       <div className="tables">
+        <MakeInfo />
         {item.map((item22: detailType[], index: number) => (
           <MakeTable data={item} key={index} index={index} category={category} updater={updateItem} updater2={updateCategory} />
         ))}
         <button type="button" onClick={createTable}>
           +
         </button>
+        <MakeSum data={item} />
       </div>
     </div>
   );
