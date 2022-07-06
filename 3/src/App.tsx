@@ -3,8 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.scss";
 import EmptyPage from "./component/EmptyPage";
 import Estimate from "./component/Estimate";
-import EstimateTable from "./component/EstimateTable";
-import TableTemplate from "./component/TableTemplate";
 import Etc from "./component/Etc";
 import Header from "./component/Header";
 import Home from "./component/Home";
@@ -18,7 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="*" element={<EmptyPage />} />
-          <Route path="/Estimate" element={<EstimateTable />} />
+          <Route path="/Estimate" element={<Estimate />} />
           <Route path="/Product" element={<Product />} />
           <Route path="/Etc" element={<Etc />} />
         </Routes>

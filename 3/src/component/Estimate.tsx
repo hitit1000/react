@@ -1,5 +1,5 @@
 import React from "react";
-import DetailItems from "./DetailItems";
+import AllTable from "./AllTable";
 
 const Estimate = () => {
   const onSubmit = (e: any) => {
@@ -31,7 +31,7 @@ const Estimate = () => {
           <label htmlFor="p_location">location</label>
           <input type="text" id="p_location" placeholder="location*" required />
           <h2>detail_item</h2>
-          <DetailItems />
+          <AllTable />
           <button type="submit">submit</button>
         </form>
       </div>
