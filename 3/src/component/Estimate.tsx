@@ -30,6 +30,9 @@ const Estimate = () => {
           <input type="text" id="p_name" placeholder="project_name*" required />
           <label htmlFor="p_location">location</label>
           <input type="text" id="p_location" placeholder="location*" required />
+          <label htmlFor="p_commission">commission </label>
+          <input type="checkbox" id="p_commission" />
+
           <h2>detail_item</h2>
           <AllTable />
           <button type="submit">submit</button>

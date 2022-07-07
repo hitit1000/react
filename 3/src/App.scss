@@ -73,17 +73,24 @@ body {
       overflow: hidden;
       // padding: 10px 5px;
       word-break: normal;
+      height: 20px;
     }
     .category {
       text-align: left;
       margin-left: 10px;
     }
     input {
-      width: 100%;
+      width: 90%;
       text-align: center;
       border: 0;
     }
-    button {
+    .addSub,
+    .deleteSub {
+      width: 10%;
+    }
+    .tablePlus,
+    .tableMinus,
+    .itmeMinus {
       width: 100%;
     }
   }

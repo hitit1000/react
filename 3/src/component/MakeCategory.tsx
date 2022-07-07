@@ -45,7 +45,7 @@ const MakeCategory = (props: { data: string[]; index: number; updater: (data: de
         <th>{priceSum(1)}</th>
         <th>{priceSum(2)}</th>
         <th>
-          <button type="button" onClick={deleteTable}>
+          <button type="button" onClick={deleteTable} className="tableMinus">
             -
           </button>
         </th>

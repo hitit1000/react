@@ -18,6 +18,7 @@ export type detailType = {
 const AllTable = () => {
   const [item, setItem] = useState(initData);
   const [category, setCategory] = useState(initCategory);
+  const [detail, setDetail] = useState(false);
   const updateItem = (data: detailType[][]) => {
     setItem(data);
   };
@@ -33,12 +34,17 @@ const AllTable = () => {
     copy2.push("empty");
     setCategory(copy2);
   };
+  const simpleAndDetail = (e: any) => {
+    setDetail(e.target.checked);
+  };
   return (
     <div className="Estimate">
+      <label htmlFor="detail">simple(F)/detail(T)</label>
+      <input type="checkbox" id="detail" onChange={simpleAndDetail}></input>
       <div className="tables">
         <MakeInfo />
         {item.map((item22: detailType[], index: number) => (
-          <MakeTable data={item} key={index} index={index} category={category} updater={updateItem} updater2={updateCategory} />
+          <MakeTable data={item} key={index} index={index} category={category} updater={updateItem} updater2={updateCategory} detail={detail} />
         ))}
         <button type="button" onClick={createTable}>
           +
