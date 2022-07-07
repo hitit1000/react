@@ -1,4 +1,4 @@
-import { detailType } from "./AllTable";
+import { detailType } from "./use";
 
 const MakeSum = (props: { data: detailType[][] }) => {
   const totalSum = (number: number) => {

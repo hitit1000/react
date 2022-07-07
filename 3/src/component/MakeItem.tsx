@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-import { detailType } from "./AllTable";
+
+import { detailType } from "./use";
 import MakeSub from "./MakeSub";
 
 const MakeItem = (props: { data: detailType[][]; index: number; updater: (data: detailType[][]) => void; tableCount: number; detail: boolean }) => {
@@ -39,10 +40,6 @@ const MakeItem = (props: { data: detailType[][]; index: number; updater: (data: 
         copy[props.tableCount][props.index].title = e.target.value;
         props.updater(copy);
         break;
-      // case "sub":
-      //   copy[props.tableCount][props.index].sub = e.target.value;
-      //   props.updater(copy);
-      //   break;
       case "option":
         copy[props.tableCount][props.index].option = e.target.value;
         props.updater(copy);

@@ -1,5 +1,6 @@
 import React from "react";
-import { detailType } from "./AllTable";
+
+import { detailType } from "./use";
 
 const MakeCategory = (props: { data: string[]; index: number; updater: (data: detailType[][]) => void; updater2: (data: string[]) => void; item: detailType[][] }) => {
   const onChange = (e: any) => {

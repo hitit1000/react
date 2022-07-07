@@ -1,6 +1,6 @@
 import MakeCategory from "./MakeCategory";
 import MakeItem from "./MakeItem";
-import { detailType } from "./AllTable";
+import { detailType } from "./use";
 import { useEffect } from "react";
 
 const MakeTable = (props: {
@@ -37,7 +37,7 @@ const MakeTable = (props: {
         <MakeCategory data={props.category} index={props.index} updater={props.updater} updater2={props.updater2} item={props.data} />
         <tbody>
           {props.data[props.index].map((data2: detailType, index: number) => (
-            <MakeItem data={props.data} key={index} index={index} updater={props.updater} tableCount={props.index} detail={props.detail}/>
+            <MakeItem data={props.data} key={index} index={index} updater={props.updater} tableCount={props.index} detail={props.detail} />
           ))}
           <tr>
             <td className="tg-0lax" colSpan={6}>

@@ -1,5 +1,6 @@
 import React from "react";
-import { detailType } from "./AllTable";
+
+import { detailType } from "./use";
 
 const MakeSub = (props: { data: detailType[][]; index: number; updater: (data: detailType[][]) => void; tableCount: number; count: number; detail: boolean }) => {
   const onChange = (e: any) => {
