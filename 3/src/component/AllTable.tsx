@@ -10,7 +10,7 @@ export type detailType = {
   category: string;
   title: string;
   option: string;
-  sub: string;
+  sub: string[];
   price1: string;
   price2: string;
   price3: string;
@@ -25,7 +25,7 @@ const AllTable = () => {
     setCategory(data);
   };
   const createTable = () => {
-    const empty: detailType = { category: "empty", title: "empty", option: "empty", sub: "empty", price1: "empty", price2: "empty", price3: "empty" };
+    const empty: detailType = { category: "empty", title: "empty", option: "empty", sub: ["empty"], price1: "0", price2: "0", price3: "0" };
     let copy = item.map((v) => v.slice());
     copy.push([empty]);
     setItem(copy);

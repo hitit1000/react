@@ -7,8 +7,8 @@ const MakeTable = (props: { data: detailType[][]; category: string[]; updater: (
   const plusTable = () => {
     let copy = props.data.map((v) => v.slice());
     let a = copy[props.index];
-    let b: detailType = { category: "empty", title: "empty", option: "empty", sub: "empty", price1: "empty", price2: "empty", price3: "empty" };
-    if (!b) {
+    let b: detailType = { category: "empty", title: "empty", option: "empty", sub: ["empty"], price1: "0", price2: "0", price3: "0" };
+    if (a.length !== 0) {
       b = { ...a[a.length - 1] };
     }
     a.push(b);
