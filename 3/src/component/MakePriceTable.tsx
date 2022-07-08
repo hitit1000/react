@@ -23,14 +23,28 @@ const MakePriceTable = (props: {
   const percentage = () => {
     let percentage = 0;
     props.priceDatas.map((x) => (percentage += Number(x[2])));
+    return String(percentage) + "%";
+  };
+  const ratioColor = () => {
+    let percentage = 0;
+    let color = "bg_white";
+    props.priceDatas.map((x) => (percentage += Number(x[2])));
     if (percentage < 100) {
       console.log("적음");
+      color = "bg_white";
     } else if (percentage === 100) {
       console.log("딱 맞음");
+      color = "bg_green";
     } else {
       console.log("넘음");
+      color = "bg_red";
     }
-    return String(percentage) + "%";
+
+    return color;
+  };
+  const onChangeRatio = (e: any) => {
+    console.log(e);
+    console.log(e);
   };
   const addPriceTable = () => {
     let copy = props.priceDatas.map((v) => v.slice());
@@ -74,7 +88,9 @@ const MakePriceTable = (props: {
           </tr>
           <tr>
             <td colSpan={2}></td>
-            <td className="totalRatio">{percentage()}</td>
+            <td className={ratioColor()} onChange={onChangeRatio}>
+              {percentage()}
+            </td>
             <td>{totalPrice()}</td>
           </tr>
         </tbody>
