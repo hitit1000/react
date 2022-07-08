@@ -1,15 +1,17 @@
 import { useState } from "react";
 import AllTable from "./AllTable";
 import MakePriceTable from "./MakePriceTable";
-import initSpecials from "./initSpecials.json";
+import init from "./init.json";
 import { detailType, priceTableType } from "./use";
-import initPriceTable from "./initPriceTable.json";
-import initData from "./initData.json";
 
 const Estimate = () => {
-  const [item, setItem] = useState(initData);
-  const [spec, setSpec] = useState(initSpecials.data);
-  const [priceDatas, setPriceDatas] = useState(initPriceTable);
+  const [item, setItem] = useState(init.data);
+  const [category, setCategory] = useState(init.categoryList);
+  const [spec, setSpec] = useState(init.spec);
+  const [priceDatas, setPriceDatas] = useState(init.price);
+  const updateCategory = (data: string[]) => {
+    setCategory(data);
+  };
   const updateItem = (data: detailType[][]) => {
     setItem(data);
   };
@@ -74,13 +76,13 @@ const Estimate = () => {
           <label htmlFor="p_commission">commission </label>
           <input type="checkbox" id="p_commission" />
           <h2>detail_item</h2>
-          <AllTable item={item} setItem={updateItem} />
+          <AllTable item={item} setItem={updateItem} category={category} setCategory={updateCategory} />
           <div>
             <label htmlFor="option_area">Conditions&Specials</label>
             <br />
             <textarea id="option_area" value={spec} onChange={onChangeSpec} spellCheck="false" required />
           </div>
-          <MakePriceTable data={item} priceDatas={priceDatas} updater={updatePriceTable} />
+          <MakePriceTable data={item} priceDatas={priceDatas} updater={updatePriceTable} category={category} />
           <button type="submit">submit</button>
         </form>
       </div>
