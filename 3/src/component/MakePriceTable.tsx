@@ -3,10 +3,16 @@ import MakePriceDownTable from "./MakePriceDownTable";
 import MakePriceUpTable from "./MakePriceUpTable";
 import { detailType, priceTableType } from "./use";
 
-const MakePriceTable = (props: { data: detailType[][]; priceDatas: priceTableType; updater: (data: priceTableType) => void; category: string[] }) => {
+const MakePriceTable = (props: {
+  data: detailType[][];
+  priceDatas: priceTableType;
+  updater: (data: priceTableType) => void;
+  category: string[];
+  commission: boolean;
+}) => {
   const totalPrice = () => {
     let price = 0;
-    props.data.map((x) => x.map((y) => (price += Number(y.price3.replaceAll(",", "")))));
+    props.data.map((x) => x.map((y) => (price += Number(props.commission ? y.price3.replaceAll(",", "") : y.price2.replaceAll(",", "")))));
     return price.toLocaleString("ko-KR");
   };
   const subPrice = () => {
@@ -16,7 +22,14 @@ const MakePriceTable = (props: { data: detailType[][]; priceDatas: priceTableTyp
   };
   const percentage = () => {
     let percentage = 0;
-    props.priceDatas.map((x) => (percentage += Number(x[2].replaceAll("%", ""))));
+    props.priceDatas.map((x) => (percentage += Number(x[2])));
+    if (percentage < 100) {
+      console.log("적음");
+    } else if (percentage === 100) {
+      console.log("딱 맞음");
+    } else {
+      console.log("넘음");
+    }
     return String(percentage) + "%";
   };
   const addPriceTable = () => {
@@ -47,9 +60,11 @@ const MakePriceTable = (props: { data: detailType[][]; priceDatas: priceTableTyp
           {props.priceDatas.map((x, index) => (
             <MakePriceUpTable key={index} data={x} table={props.priceDatas} count={index} updater={props.updater} price={subPrice()} />
           ))}
-          {props.data.map((x, index) => {
-            return <MakePriceDownTable data={props.data} index={index} key={index} category={props.category} />;
-          })}
+          {props.commission
+            ? props.data.map((x, index) => {
+                return <MakePriceDownTable data={props.data} index={index} key={index} category={props.category} />;
+              })
+            : null}
           <tr>
             <td className="tg-0lax" colSpan={4}>
               <button type="button" className="tablePlus" onClick={addPriceTable}>
@@ -59,7 +74,7 @@ const MakePriceTable = (props: { data: detailType[][]; priceDatas: priceTableTyp
           </tr>
           <tr>
             <td colSpan={2}></td>
-            <td>{percentage()}</td>
+            <td className="totalRatio">{percentage()}</td>
             <td>{totalPrice()}</td>
           </tr>
         </tbody>

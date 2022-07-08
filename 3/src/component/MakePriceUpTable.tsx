@@ -13,11 +13,11 @@ const MakePriceUpTable = (props: { data: string[]; table: priceTableType; update
         props.updater(copy);
         break;
       case "ratio":
-        let ratio = Number(e.target.value.replaceAll("%", ""));
+        let ratio = Number(e.target.value);
         if (isNaN(ratio)) {
-          copy[props.count][2] = "0%";
+          copy[props.count][2] = "0";
         } else {
-          copy[props.count][2] = `${ratio}%`;
+          copy[props.count][2] = `${ratio}`;
         }
         props.updater(copy);
         break;
@@ -46,8 +46,9 @@ const MakePriceUpTable = (props: { data: string[]; table: priceTableType; update
             -
           </button>
         </td>
-        <td>
+        <td className="ratio">
           <input type="text" id="ratio" value={props.data[2]} onChange={onChange} onFocus={onFocus} />
+          <span>%</span>
         </td>
         <td>{percentage()}</td>
       </tr>

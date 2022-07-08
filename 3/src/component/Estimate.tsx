@@ -9,6 +9,7 @@ const Estimate = () => {
   const [category, setCategory] = useState(init.categoryList);
   const [spec, setSpec] = useState(init.spec);
   const [priceDatas, setPriceDatas] = useState(init.price);
+  const [commission, setCommission] = useState(false);
   const updateCategory = (data: string[]) => {
     setCategory(data);
   };
@@ -24,7 +25,9 @@ const Estimate = () => {
   const onSubmit = (e: any) => {
     e.preventDefault();
   };
-
+  const changeCommission = (e: any) => {
+    setCommission(e.target.checked);
+  };
   return (
     <>
       <div className="Estimate">
@@ -74,7 +77,7 @@ const Estimate = () => {
           <label htmlFor="p_vat">include VAT </label>
           <input type="checkbox" id="p_vat" />
           <label htmlFor="p_commission">commission </label>
-          <input type="checkbox" id="p_commission" />
+          <input type="checkbox" id="p_commission" onChange={changeCommission} />
           <h2>detail_item</h2>
           <AllTable item={item} setItem={updateItem} category={category} setCategory={updateCategory} />
           <div>
@@ -82,7 +85,7 @@ const Estimate = () => {
             <br />
             <textarea id="option_area" value={spec} onChange={onChangeSpec} spellCheck="false" required />
           </div>
-          <MakePriceTable data={item} priceDatas={priceDatas} updater={updatePriceTable} category={category} />
+          <MakePriceTable data={item} priceDatas={priceDatas} updater={updatePriceTable} category={category} commission={commission} />
           <button type="submit">submit</button>
         </form>
       </div>
